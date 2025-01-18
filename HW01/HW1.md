@@ -18,7 +18,7 @@
 see https://github.com/ION606/COGMOD-HWI
 
 ### Part II
-see COMMIT_HASH_HERE
+see https://github.com/ION606/COGMOD-HWI/commit/260b0f4c3b9430a9d0ba2e29fd50d3f9c640c498
 
 ### Part III
 
