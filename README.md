@@ -34,6 +34,6 @@
    - Cognitive models help design experiments that directly test cognitive theories
    - Streamlines hypothesis testing by simulating experimental conditions
 
-10. **Advancing Interdisciplinary Research**
+8. **Advancing Interdisciplinary Research**
    - Serves as a sort of bridge between psychology, neuroscience, and AI
 
