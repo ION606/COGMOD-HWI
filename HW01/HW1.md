@@ -12,6 +12,22 @@
 
 ## Problem II
 
+### Example 1: Boiling Water
+- **Forward Problem**: Given a specific amount of water, heat source, and initial temperature, find how long it takes the water to boil.  
+- **Inverse Problem**: Given the time it took for the water to boil, determine the starting temperature (or the heat source).  
+- **Difficulty**: The forward problem is easier as it involves direct calculations. The inverse problem is harder as it requires working backward to determine the unknowns.
+
+### Example 2: Hot Air Balloon
+- **Forward Problem**: Given the launch location, wind conditions, and balloon details, predict where the balloon will land.  
+- **Inverse Problem**: Given the landing location and flight path, determine the launch location and wind conditions.  
+- **Difficulty**: The forward problem is easier because it simulates the balloon's movement based on the given information. The inverse problem is harder because it requires determining the initial conditions (like launch location and wind) from the result.
+
+### Example 3: Wildfire
+- **Forward Problem**: Given the starting point of the fire, weather, and terrain, predict how the fire will spread.  
+- **Inverse Problem**: Given where the fire spread to, determine where and when it started.  
+- **Difficulty**: The forward problem is challenging as it involves predicting fire behavior under various factors. The inverse problem is even harder because it requires deducing the origin of the fire from its spread, which can be ambiguous and unclear.
+
+
 
 ## Problem III (Git and GitHub)
 ### Part I
