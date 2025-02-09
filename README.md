@@ -1,4 +1,4 @@
-# Cognative Modeling Spring 2025
+# Cognitive Modeling Spring 2025
 > Team members: Itamar Oren-N, Annabelle Choi
 
 ![logo.png](logo.png)
