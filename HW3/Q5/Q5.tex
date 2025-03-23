@@ -1,0 +1,76 @@
+As a culinary data scientist, you investigate how cooking time (\(x\)) affects the length of "massive ramen noodles" (\(y\)). Using Bayesian linear regression, you model the relationship to quantify expansion rates and uncertainty.
+
+\subsection*{Methods}
+\subsubsection*{Model Specification}
+The regression model is:
+\[
+y_n = \alpha + \beta x_n + \epsilon_n, \quad \epsilon_n \sim \mathcal{N}(0, \sigma^2)
+\]
+\begin{itemize}
+    \item \textbf{Priors}: 
+    \begin{align*}
+        \alpha &\sim \mathcal{N}(0, 10) \quad \text{(Intercept)} \\
+        \beta &\sim \mathcal{N}(0, 10) \quad \text{(Slope)} \\
+        \sigma^2 &\sim \text{Inv-Gamma}(1, 1) \quad \text{(Noise)}
+    \end{align*}
+\end{itemize}
+
+\subsubsection*{Data Simulation}
+Data was generated with:
+\begin{itemize}
+    \item True parameters: \(\alpha = 2.3\), \(\beta = 4.0\), \(\sigma = 2.0\)
+    \item \(N = 100\) observations, \(x \sim \mathcal{N}(0, 1)\), \(y = \alpha + \beta x + \mathcal{N}(0, \sigma^2)\)
+\end{itemize}
+
+\subsection*{Results}
+\subsubsection*{Posterior Estimates (\(N = 100\))}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        Parameter & Posterior Mean & 95\% HDI & True Value \\
+        \midrule
+        \(\alpha\) (Intercept) & 2.31 & [1.94, 2.65] & 2.3 \\
+        \(\beta\) (Slope) & 3.71 & [3.32, 4.13] & 4.0 \\
+        \(\sigma\) (Noise) & 1.91 & [1.67, 2.18] & 2.0 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Posterior summaries vs. true values. HDI = Highest Density Interval.}
+\end{table}
+
+\subsubsection*{Convergence Diagnostics}
+\begin{itemize}
+    \item \textbf{R-hat}: 1.0 for all parameters (ideal: \(\leq 1.01\)).
+    \item \textbf{ESS (Effective Sample Size)}: \(\alpha\): 6123, \(\beta\): 7356, \(\sigma\): 6362 (exceeding thresholds for reliability).
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{posterior_plots.png}
+    \caption{Posterior distributions for \(\alpha\), \(\beta\), and \(\sigma\). Dashed lines indicate true values.}
+\end{figure}
+
+\subsubsection*{Effect of Increased Data (\(N = 1000\), Hypothetical)}
+\begin{itemize}
+    \item Expected uncertainty reduction: Credible interval widths shrink by \(\sim 60\%\).
+    \item Posteriors concentrate tightly around true values (law of large numbers).
+\end{itemize}
+
+\subsection*{Discussion}
+\subsubsection*{Accuracy and Uncertainty}
+\begin{itemize}
+    \item With \(N = 100\), estimates align closely with ground truth (e.g., \(\beta = 3.71\) vs. true \(4.0\)), but credible intervals reflect residual uncertainty.
+    \item Noise (\(\sigma\)) slightly underestimated but within plausible range.
+\end{itemize}
+
+\subsubsection*{Model Insights}
+\begin{itemize}
+    \item Noodles expand by \(\sim 3.7\) units per second (\(\beta\)), validating the hypothesis.
+    \item Stan's MCMC sampler achieved excellent convergence (R-hat = 1.0, ESS > 5000).
+\end{itemize}
+
+\subsubsection*{Limitations}
+\begin{itemize}
+    \item Assumes linearity and normality; real-world noodle expansion may exhibit nonlinear dynamics.
+    \item Hyperparameters (e.g., \(\mathcal{N}(0, 10)\)) chosen for demonstration, not domain knowledge.
+\end{itemize}

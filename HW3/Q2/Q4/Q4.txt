@@ -1,0 +1,71 @@
+To solve Problem 5, follow these steps:
+
+### Step 1: Simulate Data
+
+### Step 2: Stan Model Code
+Write the Stan model (`bayesian_regression.stan`):
+```stan
+data {
+  int<lower=0> N;
+  vector[N] x;
+  vector[N] y;
+}
+parameters {
+  real alpha;
+  real beta;
+  real<lower=0> sigma_sq;
+}
+transformed parameters {
+  real<lower=0> sigma = sqrt(sigma_sq);
+}
+model {
+  sigma_sq ~ inv_gamma(1, 1); // Prior on variance
+  alpha ~ normal(0, 10);
+  beta ~ normal(0, 10);
+  y ~ normal(alpha + beta * x, sigma); // Likelihood
+}
+```
+
+### Step 3: Fit the Model and Check Diagnostics
+Use `pystan` or `cmdstanpy` to run the model. Check Rhat (≈1) and ESS (sufficiently large). For example:
+```python
+import cmdstanpy
+
+model = cmdstanpy.CmdStanModel(stan_file="bayesian_regression.stan")
+data = {"N": N, "x": x, "y": y}
+fit = model.sample(data=data, chains=4, iter_sampling=2000)
+
+# Check diagnostics
+print(fit.diagnose())
+```
+
+### Step 4: Analyze Results for N=100
+Posterior summaries:
+- **Posterior means** should be close to true values (α=2.3, β=4.0, σ=2.0).
+- **Uncertainty**: Compute 95% credible intervals. Example output:
+  - α: 2.1 ± 0.4 (1.7 to 2.5)
+  - β: 3.8 ± 0.5 (3.3 to 4.3)
+  - σ: 1.9 ± 0.2 (1.7 to 2.1)
+
+### Step 5: Repeat with N=1000
+Increase sample size and rerun:
+```python
+N_large = 1000
+x_large = np.random.normal(size=N_large)
+y_large = alpha_true + beta_true * x_large + sigma_true * np.random.normal(size=N_large)
+```
+Fit the model again. Results will show:
+- **Tighter credible intervals** (e.g., β: 3.95 ± 0.1).
+- Reduced posterior variance, indicating higher precision.
+
+### Key Observations:
+1. **Accuracy**: Posterior means align closely with true parameters.
+2. **Uncertainty**: Credible intervals narrow as \(N\) increases, reflecting reduced uncertainty.
+3. **Diagnostics**: Ensure Rhat ≈1 and sufficient ESS for reliable inferences.
+
+**Visualization**: Plot prior vs. posterior histograms for parameters (using tools like `arviz` or `seaborn`), showing posterior concentration around true values, especially for \(N=1000\).
+
+---
+
+**Answer for LMS Submission**  
+Implement the steps above, ensuring your write-up includes code snippets, diagnostic results, and graphical comparisons. Highlight the reduction in posterior variance when increasing \(N\), demonstrating the influence of data quantity on Bayesian inference.
