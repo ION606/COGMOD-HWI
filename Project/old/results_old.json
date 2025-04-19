@@ -1,0 +1,62 @@
+[
+  {
+    "optimizer": "sgd",
+    "augmentation": "none",
+    "test_acc": 0.6843,
+    "robustness": {
+      "0.1": 0.618,
+      "0.2": 0.4442,
+      "0.3": 0.3226
+    }
+  },
+  {
+    "optimizer": "sgd",
+    "augmentation": "standard",
+    "test_acc": 0.6807,
+    "robustness": {
+      "0.1": 0.5634,
+      "0.2": 0.379,
+      "0.3": 0.2741
+    }
+  },
+  {
+    "optimizer": "sgd",
+    "augmentation": "aggressive",
+    "test_acc": 0.663,
+    "robustness": {
+      "0.1": 0.5884,
+      "0.2": 0.4499,
+      "0.3": 0.3406
+    }
+  },
+  {
+    "optimizer": "adam",
+    "augmentation": "none",
+    "test_acc": 0.5696,
+    "robustness": {
+      "0.1": 0.4816,
+      "0.2": 0.3036,
+      "0.3": 0.2133
+    }
+  },
+  {
+    "optimizer": "adam",
+    "augmentation": "standard",
+    "test_acc": 0.5161,
+    "robustness": {
+      "0.1": 0.4067,
+      "0.2": 0.2519,
+      "0.3": 0.1753
+    }
+  },
+  {
+    "optimizer": "adam",
+    "augmentation": "aggressive",
+    "test_acc": 0.4831,
+    "robustness": {
+      "0.1": 0.4319,
+      "0.2": 0.2668,
+      "0.3": 0.1618
+    }
+  }
+]

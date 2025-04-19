@@ -1,0 +1,200 @@
+[
+  {
+    "seed": 42,
+    "optimizer": "sgd",
+    "augmentation": "none",
+    "test_acc": 0.7088,
+    "robustness": {
+      "0.1": 0.6319,
+      "0.2": 0.4336,
+      "0.3": 0.2913
+    }
+  },
+  {
+    "seed": 42,
+    "optimizer": "sgd",
+    "augmentation": "standard",
+    "test_acc": 0.6859,
+    "robustness": {
+      "0.1": 0.5952,
+      "0.2": 0.4019,
+      "0.3": 0.2757
+    }
+  },
+  {
+    "seed": 42,
+    "optimizer": "sgd",
+    "augmentation": "aggressive",
+    "test_acc": 0.6536,
+    "robustness": {
+      "0.1": 0.5778,
+      "0.2": 0.43,
+      "0.3": 0.2943
+    }
+  },
+  {
+    "seed": 42,
+    "optimizer": "adam",
+    "augmentation": "none",
+    "test_acc": 0.5451,
+    "robustness": {
+      "0.1": 0.4221,
+      "0.2": 0.2298,
+      "0.3": 0.1545
+    }
+  },
+  {
+    "seed": 42,
+    "optimizer": "adam",
+    "augmentation": "standard",
+    "test_acc": 0.5101,
+    "robustness": {
+      "0.1": 0.454,
+      "0.2": 0.2098,
+      "0.3": 0.1324
+    }
+  },
+  {
+    "seed": 42,
+    "optimizer": "adam",
+    "augmentation": "aggressive",
+    "test_acc": 0.4427,
+    "robustness": {
+      "0.1": 0.4048,
+      "0.2": 0.2461,
+      "0.3": 0.1547
+    }
+  },
+  {
+    "seed": 123,
+    "optimizer": "sgd",
+    "augmentation": "none",
+    "test_acc": 0.6974,
+    "robustness": {
+      "0.1": 0.63,
+      "0.2": 0.4452,
+      "0.3": 0.312
+    }
+  },
+  {
+    "seed": 123,
+    "optimizer": "sgd",
+    "augmentation": "standard",
+    "test_acc": 0.6674,
+    "robustness": {
+      "0.1": 0.6252,
+      "0.2": 0.4146,
+      "0.3": 0.2764
+    }
+  },
+  {
+    "seed": 123,
+    "optimizer": "sgd",
+    "augmentation": "aggressive",
+    "test_acc": 0.6691,
+    "robustness": {
+      "0.1": 0.6179,
+      "0.2": 0.4691,
+      "0.3": 0.3423
+    }
+  },
+  {
+    "seed": 123,
+    "optimizer": "adam",
+    "augmentation": "none",
+    "test_acc": 0.6049,
+    "robustness": {
+      "0.1": 0.4685,
+      "0.2": 0.3387,
+      "0.3": 0.2378
+    }
+  },
+  {
+    "seed": 123,
+    "optimizer": "adam",
+    "augmentation": "standard",
+    "test_acc": 0.4654,
+    "robustness": {
+      "0.1": 0.4071,
+      "0.2": 0.3073,
+      "0.3": 0.2341
+    }
+  },
+  {
+    "seed": 123,
+    "optimizer": "adam",
+    "augmentation": "aggressive",
+    "test_acc": 0.5096,
+    "robustness": {
+      "0.1": 0.4624,
+      "0.2": 0.3219,
+      "0.3": 0.2159
+    }
+  },
+  {
+    "seed": 999,
+    "optimizer": "sgd",
+    "augmentation": "none",
+    "test_acc": 0.7058,
+    "robustness": {
+      "0.1": 0.6252,
+      "0.2": 0.3848,
+      "0.3": 0.2276
+    }
+  },
+  {
+    "seed": 999,
+    "optimizer": "sgd",
+    "augmentation": "standard",
+    "test_acc": 0.6861,
+    "robustness": {
+      "0.1": 0.6002,
+      "0.2": 0.4184,
+      "0.3": 0.2986
+    }
+  },
+  {
+    "seed": 999,
+    "optimizer": "sgd",
+    "augmentation": "aggressive",
+    "test_acc": 0.6595,
+    "robustness": {
+      "0.1": 0.5775,
+      "0.2": 0.4165,
+      "0.3": 0.2899
+    }
+  },
+  {
+    "seed": 999,
+    "optimizer": "adam",
+    "augmentation": "none",
+    "test_acc": 0.5573,
+    "robustness": {
+      "0.1": 0.4562,
+      "0.2": 0.293,
+      "0.3": 0.2167
+    }
+  },
+  {
+    "seed": 999,
+    "optimizer": "adam",
+    "augmentation": "standard",
+    "test_acc": 0.4835,
+    "robustness": {
+      "0.1": 0.4136,
+      "0.2": 0.2221,
+      "0.3": 0.1548
+    }
+  },
+  {
+    "seed": 999,
+    "optimizer": "adam",
+    "augmentation": "aggressive",
+    "test_acc": 0.5123,
+    "robustness": {
+      "0.1": 0.449,
+      "0.2": 0.2571,
+      "0.3": 0.1658
+    }
+  }
+]
