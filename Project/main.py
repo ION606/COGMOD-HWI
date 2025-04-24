@@ -173,9 +173,21 @@ def analyze_results(results_path='results.json'):
 
 	# composite label
 	df['condition'] = df['optimizer'] + '_' + df['augmentation']
+ 
+	fig, ax = plt.subplots(figsize=(12, 8))
+	colors = plt.cm.viridis(np.linspace(0.2, 0.8, len(df)))
+	df.plot.bar(x='condition', y='test_acc', rot=45, color=colors, ax=ax)
+
+
 	df.plot.bar(x='condition', y='test_acc', rot=45)
 	plt.ylabel('test accuracy')
-	plt.tight_layout()
+	# plt.tight_layout()
+ 
+	# only show every other tick label to avoid overcrowding
+	tick_labels = ax.get_xticklabels()
+	new_labels = [label.get_text() if i % 2 == 0 else "" for i, label in enumerate(tick_labels)]
+	ax.set_xticklabels(new_labels)
+
 	
 	# ripped off the py docs --> viridis colormap for bars
 	colors = plt.cm.viridis(np.linspace(0.2, 0.8, len(df)))
@@ -267,6 +279,6 @@ if __name__ == '__main__':
 	# exit(1)
 
 	if args.analyze:
-		analyze_results()
+		analyze_results("combined_results.json")
 	else:
 		run_experiments(args)
